@@ -14,8 +14,29 @@
   font-display: swap;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+.page-container {
+  margin-left:auto;
+  margin-right:auto;
+  width: 1200px;
+  background-color: #ffffff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
 body {
   font-family: "PT Sans", sans-serif;
+  padding:0;
+  margin:0;
   font-size: 18px;
   line-height: 21px;
   color: #333333;
@@ -23,22 +44,23 @@ body {
 }
 
 
-div {
-  width: 1200px;
-}
-
 .header-navigation {
   background-color: #ffffff;
   color: black;
+}
+
+.navigation-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 .navigation-link {
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
-  color: inherit;
+  color: #000000;
   text-align: left;
-  vertical-align: top;
   text-decoration: none;
 }
 
@@ -49,15 +71,19 @@ div {
   color: #ffffff;
   background-color: #756157;
   text-align: center;
+  display: inline-block;
+  padding: 8px 34px;
+  min-width: 160px;
+  max-width: 260px;
+  border-radius: 4px;
 }
 
-.main-index {
+.welcome {
   background-image: url("../images/index-background.jpg");
   text-align: center;
-  background-color: #ffffff;
+  background-color: #394e53;
   background-repeat: no-repeat;
-  background-size: 100% auto;
-  height: 485px;
+  background-size: cover;
 }
 
 .advantages-main,
