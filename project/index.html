@@ -55,13 +55,13 @@
         <p class="advantages-reasons">Рассмотрим причины, по которым Седона круче, чем Гранд-Каньон!</p>
         <ul class="advantages-list">
           <li class="advantages-item">
-            <div class="advantages-container">
+            <div class="advantages-container-picture">
               <h3 class="advantages-title picture-title">Настоящий городок</h3>
               <p class="advantages-text picture-text">Седона — не аттракцион для туристов, там течёт своя жизнь</p>
             </div>
             <div class="advantages-image">
-            <img src="images/photo-1.jpg" alt="Вид на городок" class="advantages-image-town" width="800" height="384">
-          </div>
+              <img src="images/photo-1.jpg" alt="Вид на городок" class="advantages-image-town" width="800" height="384">
+            </div>
           </li>
           <li class="advantages-item">
             <div class="advantages-container">
@@ -69,8 +69,8 @@
               <p class="advantages-text">Все достопримечательности находятся очень близко</p>
             </div>
           </li>
-          <li class="advantages-item dark-one">
-            <div class="advantages-container">
+          <li class="advantages-item">
+            <div class="advantages-container dark-one">
               <h3 class="advantages-title">Красивая дорога</h3>
               <p class="advantages-text">Ехать в Седону из Лас-Вегаса совсем не скучно!</p>
             </div>
@@ -82,13 +82,13 @@
             </div>
           </li>
           <li class="advantages-item">
-            <div class="advantages-container">
+            <div class="advantages-container-picture">
               <h3 class="advantages-title picture-title">Там есть мост дьявола</h3>
               <p class="advantages-text picture-text">Да, по нему можно пройти! Если вы осмелитесь, разумеется</p>
             </div>
-           <div class="advantages-image">
-            <img src="images/photo-2.jpg" alt="Мост дьявола" class="advantages-image-bridge" width="800" height="384">
-          </div>
+            <div class="advantages-image">
+              <img src="images/photo-2.jpg" alt="Мост дьявола" class="advantages-image-bridge" width="800" height="384">
+            </div>
           </li>
         </ul>
         <ul class="advantages-advice-list">
@@ -131,36 +131,44 @@
           <button class="button" type="submit">Подписаться</button>
         </form>
       </section>
-      <section class="contacts">
-        <h2 class="visually-hidden">Контакты</h2>
-        <ul class="socials-list">
-          <li class="social-item">
-            <a href="https://vk.com/htmlacademy" class="socials">
-              <span class="visually-hidden">Vkontakte</span>
-              <img class="socials" src="images/socials/Vector.svg" alt="Вконтакте" width="24" height="14">
-            </a>
-          </li>
-          <li class="social-item">
-            <a href="https://t.me/htmlacademy" class="socials">
-              <span class="visually-hidden">Telegram</span>
-              <img src="images/socials/Vector-1.svg" alt="Телеграм" class="socials" width="18" height="15,1">
-            </a>
-          </li>
-          <li class="social-item">
-            <a href="https://www.youtube.com/user/htmlacademyru" class="socials">
-              <span class="visually-hidden">Youtube</span>
-              <img class="socials" src="images/socials/Vector-2.svg">
-            </a>
-          </li>
-        </ul>
-      </section>
-      <address class="contacts-number">
-        <a class="contacts-phone" href="tel:+78128121212">+7 (812) 812-12-12</a>
-      </address>
-      <a class="contacts-logo" href="https://htmlacademy.ru/">
-        <img class="logo-contacts" src="images/HTML Academy.svg" alt="Логотип сайта разработчика" width="114,9"
-          height="32,9">
-      </a>
+      <div class="contacts-container">
+        <section class="contacts">
+          <div class="contacts-block">
+            <h2 class="visually-hidden">Контакты</h2>
+            <ul class="socials-list">
+              <li class="social-item">
+                <a href="https://vk.com/htmlacademy" class="socials">
+                  <span class="visually-hidden">Vkontakte</span>
+                  <img class="socials" src="images/socials/Vector.svg" alt="Вконтакте" width="24" height="14">
+                </a>
+              </li>
+              <li class="social-item">
+                <a href="https://t.me/htmlacademy" class="socials">
+                  <span class="visually-hidden">Telegram</span>
+                  <img src="images/socials/Vector-1.svg" alt="Телеграм" class="socials" width="18" height="15,1">
+                </a>
+              </li>
+              <li class="social-item">
+                <a href="https://www.youtube.com/user/htmlacademyru" class="socials">
+                  <span class="visually-hidden">Youtube</span>
+                  <img class="socials" src="images/socials/Vector-2.svg">
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <div class="contacts-block">
+          <address class="contacts-number">
+            <a class="contacts-phone" href="tel:+78128121212">+7 (812) 812-12-12</a>
+          </address>
+        </div>
+        <div class="contacts-block">
+          <a class="contacts-logo" href="https://htmlacademy.ru">
+            <img class="logo-contacts" src="images/HTML Academy.svg" alt="Логотип сайта разработчика" width="114,9"
+              height="32,9">
+          </a>
+        </div>
+      </div>
     </footer>
   </div>
 </body>
