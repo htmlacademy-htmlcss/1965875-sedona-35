@@ -2,7 +2,7 @@
   font-family: "PT Sans";
   font-weight: 400;
   font-style: normal;
-  src: url("../../fonts/ptsans-400.woff2") format("woff2");
+  src: url("../fonts/ptsans-400.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -10,7 +10,7 @@
   font-family: "PT Sans";
   font-weight: 700;
   font-style: normal;
-  src: url("../../fonts/ptsans-700.woff2") format("woff2");
+  src: url("../fonts/ptsans-700.woff2") format("woff2");
   font-display: swap;
 }
 
@@ -29,72 +29,96 @@ html {
   height: 100%;
 }
 
-.page-container {
-  margin: 0 auto;
-  width: 1200px;
-  background-color: #ffffff;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
-
 body {
   display: flex;
-  /*   flex-direction: column;
-  min-height: 100%; */
-  font-family: "PT Sans", sans-serif;
+  flex-direction: column;
+  min-height: 100vh;
+
   padding: 0;
   margin: 0;
+  font-family: "PT Sans", sans-serif;
   font-size: 18px;
   line-height: 21px;
   color: #333333;
   background-color: #f2f2f2;
 }
 
-/* .main-index {
-  flex-grow: 1;
-} */
-
-.navigation {
-  display: inline-flex;
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   margin: 0 auto;
-  position: relative;
-
-  /*justify-content: center;  */
+  width: 1200px;
+  background-color: #ffffff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-.logo-header-navigation {
-  position: absolute;
-  left: -130px;
-  top: 0;
+.main-index {
+  flex-grow: 1;
 }
 
 .header-navigation {
   display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  justify-content: center;
   background-color: #ffffff;
   color: black;
 }
 
+.navigation {
+  position: relative;
+  display: flex;
+  width: 1060px;
+  justify-content: space-between;
+  /* margin: 0 auto; */
+}
+
+.logo-header-navigation {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
 .navigation-list {
   display: flex;
+  flex-wrap: wrap;
   padding: 0;
   margin: 0;
+  margin-left: 184px;
   list-style: none;
-  width: 450px;
+  /* width: 450px; */
 }
 
 .navigation-user {
   display: flex;
-  max-width: 350px;
-  margin-left: auto;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .navigation-item {
-  padding: 18px 16px 20px;
+  position: relative;
+  margin-right: 32px;
 }
 
+.navigation-item:last-of-type {
+  margin-right: 0;
+}
+
+.navigation-item-active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: #756257;
+
+}
 
 .navigation-link {
+  display: inline-block;
+  padding-top: 20px;
+  padding-bottom: 20px;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
@@ -103,7 +127,35 @@ body {
   text-decoration: none;
 }
 
-.want {
+.navigation-link-search {
+
+}
+
+.navigation-link-favorites {
+  position: relative;
+ min-width: 20px;
+  min-height: 20px;
+  background-color: #cccccc;
+  padding: 0;
+}
+
+.likes-number {
+  position: absolute;
+  right: -50%;
+  top: -50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 10px;
+  line-height: 10px;
+  background-color: #7DB54F;
+}
+
+.navigation-link-want {
   font-size: 16px;
   line-height: 20px;
   text-transform: uppercase;
@@ -113,35 +165,51 @@ body {
   display: inline-block;
   padding: 8px 34px;
   min-width: 160px;
+  box-sizing: border-box;
   max-width: 260px;
   border-radius: 4px;
 }
 
 .welcome {
-  background-image: url("../images/index-background.jpg");
+  height: 485px;
+  background-image:
+    url("../images/banner-decoration.svg"),
+    url("../images/index-background.jpg");
   text-align: center;
   background-color: #394e53;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-position: bottom, top;
+  background-size: auto;
+  box-sizing: border-box;
   padding-top: 50px;
 }
 
-.advantages-main {
+
+.advantages-intro {
+  padding-top: 69px;
+  padding-bottom: 90px;
+}
+
+.advantages-intro-title {
+  width: 740px;
   padding: 0;
   margin: 0 auto;
+  margin-bottom: 25px;
   font-weight: 700;
   font-size: 30px;
   line-height: 36px;
   text-transform: uppercase;
   color: black;
   text-align: center;
-  width: 740px;
 }
 
-.advantages-reasons {
+.advantages-intro-text {
   padding: 0;
   margin: 0 auto;
+  font-size: 22px;
+  line-height: 26px;
   text-align: center;
+
 }
 
 .advantages-list {
@@ -160,14 +228,18 @@ body {
   padding: 0;
 }
 
-.advantages-container {
-  width: 400px;
+/* div в списках - лишние? */
 
-}
-
+/* вложенность флекс во флекс чтобы был одинаковый размер. нельзя задавать высоту контенту */
 
 .advantages-item {
   display: flex;
+  /* height: 384px; */
+  width: 400px;
+}
+
+.advantages-item-open {
+  width: 100%;
 }
 
 .advantages-image {
@@ -198,9 +270,22 @@ body {
 
 .advantages-container-picture {
   background-color: #82B3D3;
+  width: 400px;
 }
 
-.advantages-title,
+.advantages-title {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0 auto;
+  padding: 0;
+  padding-top: 103px;
+  width: 175px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: black;
+}
+
 .advantages-advice-title {
   text-align: center;
   text-transform: uppercase;
@@ -212,7 +297,14 @@ body {
   color: black;
 }
 
-.advantages-text,
+.advantages-text  {
+  width: 230px;
+  text-align: center;
+  margin: 62px 85px 121px;
+  padding: 0;
+}
+
+
 .advantages-advice-text {
   text-align: center;
   margin: 0;
@@ -223,16 +315,17 @@ body {
   background-color: rgba(131, 179, 211, 0.2);
 }
 
+/* блоки с картинками по пикселям не сошлись на 4  */
+
 .picture-title {
-  text-transform: uppercase;
   color: #ffffff;
-  margin: 0;
   padding: 0;
+  padding-top: 92px;
 }
 
 .picture-text {
   color: #ffffff;
-  margin: 0;
+  margin: 56px 85px 111px;
   padding: 0;
 }
 
@@ -257,7 +350,7 @@ body {
 
 
 .subscribe {
-  background-image: url("../images/Subscribe.png");
+  background-image: url("../images/subscribe.png");
   background-color: #394e53;
 }
 
