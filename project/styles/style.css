@@ -49,6 +49,7 @@ body {
   text-transform: uppercase;
   text-decoration: none;
   color: #ffffff;
+  font-family: "PT Sans", sans-serif;
   font-size: 16px;
   line-height: 20px;
   font-weight: bold;
@@ -101,6 +102,84 @@ body {
 
 .button-green:active {
   background-color: #7DB54F;
+}
+
+.button-transparent {
+  background-color: transparent;
+}
+
+.button-transparent:hover {
+  opacity: 0.6;
+}
+
+.button-transparent:focus {
+  box-shadow: inset 0 0 0 3px #83b3d3;
+  opacity: 1;
+}
+
+.button-transparent:active {
+  opacity: 0.3;
+}
+
+.input {
+  border-radius: 4px;
+  padding: 12px 20px;
+  font-size: 18px;
+  line-height: 24px;
+  color: #000000;
+  background-color: #F2F2F2;
+  border: none;
+  box-sizing: border-box;
+  transition: 0.2s;
+}
+
+.input::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.input:hover {
+  background-color: #E6E6E6;
+}
+
+.input:focus {
+  border: 3px solid #83B3D3;
+  background-color: #E6E6E6;
+}
+
+.input:active {
+  border: 2px solid #000000;
+  background-color: #E6E6E6;
+}
+
+.checkbox {
+  display: flex;
+}
+
+.checkbox input {
+  display: none;
+}
+
+.checkbox:before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  margin-right: 16px;
+}
+
+/* .checkbox:checked:before {
+  background-image: url('../images/checkbox.svg');
+} */
+
+.checkbox ~ input:checked {
+  background-color: red;
+}
+
+.radio {
+  width: 20px;
+  height: 20px;
 }
 
 .page-container {
@@ -478,15 +557,10 @@ body {
   justify-content: center;
 }
 
-.subscribe-input-wrapper input {
-  border: none;
+.subscribe-input {
   width: 452px;
   padding: 14px 20px;
-  font-size: 18px;
-  line-height: 24px;
-  background: #F2F2F2;
   border-radius: 4px 0px 0px 4px;
-  color: rgba(0, 0, 0, 0.6);
   box-sizing: border-box;
 }
 
@@ -571,11 +645,88 @@ body {
   fill: rgba(117, 97, 87, 0.3);
 }
 
+/* === CATALOG === */
+
 .picture-container {
-  background-image: url("../images/filter.png");
+  padding-top: 35px;
+  padding-bottom: 64px;
+  padding-left: 70px;
+  padding-right: 70px;
+  background-image: url("../images/catalog-background.jpg");
   background-color: #394e53;
   background-repeat: no-repeat;
+  color: #fff;
 }
+
+.catalog-header {
+
+}
+
+.catalog-header-title {
+  font-size: 60px;
+  line-height: 78px;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  margin-bottom: 40px;
+  padding: 0;
+  color: #ffffff;
+  list-style: none;
+}
+
+.breadcrumbs-item {
+  position: relative;
+  margin-right: 28px;
+}
+
+.breadcrumbs-item:not(.breadcrumbs-item:last-of-type):after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 5px);
+  right: -18px;
+  display: block;
+  width: 6.4px;
+  height: 10px;
+  background-image: url('../images/arrow.svg');
+}
+
+.breadcrumbs-link-home {
+  display: block;
+  width: 13px;
+  height: 13px;
+  font-size: 0;
+  background-image: url('../images/home.svg');
+}
+
+.catalog-filter-group {
+  border: none;
+  padding: 0;
+  margin: 0;
+  margin-right: 70px;
+}
+
+.catalog-filter-title {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: bold;
+  margin-bottom: 33.5px;
+}
+
+.catalog-filter-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.catalog-filter-item {
+  margin-bottom: 19px;
+}
+
 
 .filter-search {
   display: flex;
@@ -608,20 +759,60 @@ body {
 }
 
 
-.breadcrumbs {
-  display: flex;
-  margin: 0;
-  padding: 0;
-color: #ffffff;
-list-style: none;
-}
-
-.breadcrumbs-item {
-  margin-right: 28px;
-}
-
 .filter-button {
   display: block;
   width: 48px;
   height: 48px;
+}
+
+
+
+
+
+/* === MODAL-CONTAINER === */
+
+.modal-container {
+position: fixed;
+top: 0;
+left: 0;
+min-width: 100%;
+min-height: 100%;
+display: flex;
+background-color: rgba(242, 242, 242, 0.8);
+}
+
+.modal {
+  position: relative;
+  margin: auto;
+  padding: 64px 70px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 25px 50px rgba(0, 0, 0, 0.15);
+border-radius: 30px;
+}
+
+.modal-search-hotel {
+  width: 717px;
+}
+
+.modal-close-button {
+position:absolute;
+padding: 0;
+top: 0;
+right: 0;
+width: 52px;
+height: 52px;
+background-color: #F2F2F2;
+border: none;
+
+}
+
+.modal-title {
+margin: 0;
+margin-bottom: 412px;
+text-transform: uppercase;
+font-size: 30px;
+line-height: 36px;
+font-weight: 700;
+color:#000000;
+
 }
