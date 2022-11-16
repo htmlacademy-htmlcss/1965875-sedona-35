@@ -33,7 +33,6 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-
   padding: 0;
   margin: 0;
   font-family: "PT Sans", sans-serif;
@@ -150,7 +149,7 @@ body {
   background-color: #E6E6E6;
 }
 
-.input:focus:not(:focus-visible),
+.input:focus,
 .input:focus-visible {
   outline: none;
   box-shadow: inset 0 0 0 3px #83b3d3;
@@ -184,7 +183,7 @@ body {
 }
 
 .select:hover,
-.select:focus:not(:focus-visible),
+.select:focus,
 .select:focus-visible {
   outline: none;
   box-shadow: inset 0 0 0 2px #68A2CA;
@@ -205,8 +204,24 @@ body {
   background-image: url('../images/select-arrow.svg');
 }
 
+.checkbox {
+  transition: 0.2s;
+}
+
+.checkbox:hover {
+  opacity: 0.6;
+}
+
+.checkbox:active {
+  opacity: 0.3;
+}
+
 .checkbox input {
-  display: none;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
 
 .checkbox label {
@@ -225,14 +240,34 @@ body {
   margin-right: 16px;
 }
 
-.checkbox input:checked ~ label:before {
+.checkbox input:checked~label:before {
   background-image: url('../images/checkbox.svg');
   background-repeat: no-repeat;
   background-position: 50%;
 }
 
+.checkbox input:focus ~ label:before {
+  box-shadow: 0 0 0 3px #83b3d3;
+}
+
+.radio {
+  transition: 0.2s;
+}
+
+.radio:hover {
+  opacity: 0.6;
+}
+
+.radio:active {
+  opacity: 0.3;
+}
+
 .radio input {
-  display: none;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
 
 .radio label {
@@ -244,6 +279,7 @@ body {
 
 .radio label:before {
   content: '';
+  flex-shrink: 0;
   display: block;
   width: 20px;
   height: 20px;
@@ -252,7 +288,11 @@ body {
   margin-right: 16px;
 }
 
-.radio input:checked ~ label:after {
+.radio input:focus ~ label:before {
+  box-shadow: 0 0 0 3px #83b3d3;
+}
+
+.radio input:checked~label:after {
   position: absolute;
   top: 5px;
   left: 5px;
@@ -289,7 +329,7 @@ body {
   position: relative;
   display: flex;
   width: 1060px;
-  height: 64px;
+  min-height: 64px;
   justify-content: space-between;
 }
 
@@ -304,13 +344,13 @@ body {
   flex-wrap: wrap;
   padding: 0;
   margin: 0;
-  margin-left: 184px;
+  margin-left: 168px;
   list-style: none;
 }
 
 .navigation-user {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
 }
 
@@ -318,25 +358,22 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  margin-right: 32px;
-}
-
-.navigation-item:last-of-type {
-  margin-right: 0;
 }
 
 .navigation-item-active::after {
   content: '';
   position: absolute;
   bottom: -1px;
+  left: 16px;
+  width: calc(100% - 32px);
   display: block;
   height: 2px;
-  width: 100%;
   background-color: #756257;
 }
 
 .navigation-link {
   display: block;
+  padding: 20px 16px;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
@@ -345,33 +382,35 @@ body {
   text-decoration: none;
 }
 
-.navigation-item-search {
-  margin-right: 26px;
-}
 
 .navigation-item-search .navigation-link {
-  width: 18px;
-  height: 18px;
   background-image: url('../images/search.svg');
   background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.navigation-item-search .navigation-link,
+.navigation-item-favorites .navigation-link {
+  width: 20px;
+  height: 20px;
+  padding: 22px 12px;
 }
 
 .navigation-item-favorites {
-  margin-right: 34px;
+  margin-right: 21px;
 }
 
 .navigation-item-favorites .navigation-link {
   position: relative;
-  width: 18px;
-  height: 17px;
   background-image: url('../images/heart.svg');
   background-repeat: no-repeat;
+  background-position: 50%;
 }
 
 .likes-number {
   position: absolute;
-  left: 7px;
-  bottom: 10px;
+  left: 20px;
+  top: 11px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -535,7 +574,7 @@ body {
   opacity: 0.3;
 }
 
-.advantages-text  {
+.advantages-text {
   width: 230px;
   text-align: center;
   margin: 0;
@@ -649,7 +688,7 @@ body {
 .subscribe-input {
   width: 452px;
   padding: 14px 20px;
-  border-radius: 4px 0px 0px 4px;
+  border-radius: 4px 0 0 4px;
   box-sizing: border-box;
 }
 
@@ -657,7 +696,7 @@ body {
   padding: 8px 50px;
   font-size: 20px;
   line-height: 36px;
-  border-radius: 0px 4px 4px 0px;
+  border-radius: 0 4px 4px 0;
 }
 
 .page-footer {
@@ -696,7 +735,6 @@ body {
 .social-item-link:active svg {
   fill: rgba(104, 162, 202, 0.3);
 }
-
 
 .contacts-number {
   font-style: normal;
@@ -747,6 +785,7 @@ body {
   background-image: url("../images/catalog-background.jpg");
   background-color: #394e53;
   background-repeat: no-repeat;
+  background-size: cover;
   color: #fff;
 }
 
@@ -870,11 +909,11 @@ body {
 }
 
 .price-filter-label:first-of-type .price-filter-input {
-  border-radius: 4px 0px 0px 4px;
+  border-radius: 4px 0 0 4px;
 }
 
 .price-filter-label:last-of-type .price-filter-input {
-  border-radius: 0px 4px 4px 0px;
+  border-radius: 0 4px 4px 0;
 }
 
 .price-filter-label-value {
@@ -1047,7 +1086,7 @@ body {
 
 .product-card-price {
   display: block;
-  text-align:right
+  text-align: right
 }
 
 .product-card-button {
@@ -1151,13 +1190,17 @@ body {
 /* === MODAL-CONTAINER === */
 
 .modal-container {
-position: fixed;
-top: 0;
-left: 0;
-min-width: 100%;
-min-height: 100%;
-display: flex;
-background-color: rgba(242, 242, 242, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  display: flex;
+  background-color: rgba(242, 242, 242, 0.8);
+}
+
+.modal-container-close {
+  display: none;
 }
 
 .modal {
@@ -1165,7 +1208,7 @@ background-color: rgba(242, 242, 242, 0.8);
   margin: auto;
   padding: 64px 70px;
   background-color: #FFFFFF;
-  box-shadow: 0px 25px 50px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
   border-radius: 30px;
   box-sizing: border-box;
 }
@@ -1175,7 +1218,7 @@ background-color: rgba(242, 242, 242, 0.8);
 }
 
 .modal-close-button {
-  position:absolute;
+  position: absolute;
   top: 64px;
   right: 52px;
   padding: 0;
@@ -1188,9 +1231,6 @@ background-color: rgba(242, 242, 242, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-image: url('../images/cross.svg'); */
-  /* background-position: 50%; */
-  /* background-repeat: no-repeat; */
   cursor: pointer;
   transition: 0.2s;
 }
@@ -1225,7 +1265,7 @@ background-color: rgba(242, 242, 242, 0.8);
   font-size: 30px;
   line-height: 36px;
   font-weight: 700;
-  color:#000000;
+  color: #000000;
 }
 
 .request-form {
@@ -1386,7 +1426,7 @@ background-color: rgba(242, 242, 242, 0.8);
   line-height: 20px;
   color: #fff;
   background-color: #333333;
-  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
 }
 
