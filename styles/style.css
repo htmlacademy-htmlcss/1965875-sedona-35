@@ -240,7 +240,7 @@ body {
   margin-right: 16px;
 }
 
-.checkbox input:checked~label:before {
+.checkbox input:checked ~ label:before {
   background-image: url('../images/checkbox.svg');
   background-repeat: no-repeat;
   background-position: 50%;
@@ -292,7 +292,7 @@ body {
   box-shadow: 0 0 0 3px #83b3d3;
 }
 
-.radio input:checked~label:after {
+.radio input:checked ~ label:after {
   position: absolute;
   top: 5px;
   left: 5px;
@@ -305,8 +305,8 @@ body {
 }
 
 .page {
-margin: 0 auto;
-width: 1280px;
+  margin: 0 auto;
+  width: 1280px;
 }
 
 .page-container {
